@@ -1,0 +1,51 @@
+{
+    "manifest_version": 2,
+    "name": "Soundcloud Mediakeys Reloaded",
+    "version": "0.1",
+    "description": "Enable the use of MediaKeys for Soundcloud",
+    "permissions": [
+        "*://*.soundcloud.com/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "commands": {
+        "PLAY-PAUSE-MK": {
+            "suggested_key": { "default": "MediaPlayPause" },
+            "description": "Play/Pause Key",
+            "global": true
+        },
+        "PREV-MK": {
+            "suggested_key": { "default": "MediaPrevTrack" },
+            "description": "Prev Key",
+            "global": true
+        },
+        "NEXT-MK": {
+            "suggested_key": { "default": "MediaNextTrack" },
+            "description": "Next Key",
+            "global": true
+        },
+        "STOP-MK": {
+            "suggested_key": { "default": "MediaStop" },
+            "description": "Stop Key",
+            "global": true
+        }
+    },
+    "icons": {
+        "16": "img/icon_16.png",
+        "48": "img/icon_48.png",
+        "128": "img/icon_128.png"
+    },
+    "content_scripts": [{
+        "matches": [
+            "*://*.soundcloud.com/*"
+        ],
+        "js": [
+            "js/app.js"
+        ],
+        "run_at": "document_idle"
+    }]
+}
